@@ -114,14 +114,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [20.x, 22.x]
+        node-version: [22.x, 24.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
         exclude:
           # Reduce matrix size for faster CI
           - os: windows-latest
-            node-version: 20.x
+            node-version: 22.x
           - os: macos-latest
-            node-version: 20.x
+            node-version: 22.x
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -151,7 +151,7 @@ jobs:
           echo "Static export successful. Found $(find out -type f | wc -l) files."
 
       - name: Upload build artifacts
-        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '22.x'
+        if: matrix.os == 'ubuntu-latest' && matrix.node-version == '24.x'
         uses: actions/upload-artifact@v4
         with:
           name: build-output
