@@ -7,16 +7,34 @@ export interface Degree {
 
 const degrees: Degree[] = [
   {
-    school: 'Stanford University',
-    degree: 'M.S. Computational and Mathematical Engineering (ICME)',
-    link: 'https://stanford.edu',
-    year: 2016,
+    school: 'Technische Universität München',
+    degree: 'M.S. in Management',
+    link: 'https://www.tum.de/en/',
+    year: 2024,
   },
   {
-    school: 'University at Buffalo',
-    degree: 'B.S. Electrical Engineering, Computer Engineering',
-    link: 'https://buffalo.edu',
-    year: 2012,
+    school: 'DAAD',
+    degree: 'DAAD Scholarship',
+    link: 'https://www.daad.de/en/',
+    year: 2024,
+  },
+  {
+    school: 'American University of Armenia',
+    degree: 'B.S. in Computer Science',
+    link: 'https://aua.am/',
+    year: 2020,
+  },
+  {
+    school: 'American University of Armenia',
+    degree: 'Minor in Philosophy, Politics & Economics (PPE)',
+    link: 'https://aua.am/',
+    year: 2020,
+  },
+  {
+    school: 'Hakob Kojoyan Art Educational Complex',
+    degree: 'High School',
+    link: 'https://kojoyan.schoolsite.am/',
+    year: 2015,
   },
 ];
 

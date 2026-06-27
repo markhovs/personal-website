@@ -11,27 +11,23 @@ export default function Hero() {
         </div>
 
         <h1 className="hero-title">
-          <span className="hero-name">Michael D&apos;Angelo</span>
+          <span className="hero-name">Mark Hovsepyan</span>
         </h1>
 
         <p className="hero-tagline">
-          Member of the Technical Staff at{' '}
-          <a href="https://openai.com" className="hero-highlight">
-            OpenAI
+          Software Engineer and Data Scientist building data-driven products at{' '}
+          <a href="https://dabblelab.com" className="hero-highlight">
+            Dabble Lab
           </a>
-          , where I work on{' '}
-          <a href="https://promptfoo.dev" className="hero-highlight">
-            Promptfoo
-          </a>{' '}
-          and agent security.
+          .
           <br />
-          Previously co-founded, scaled, and sold Promptfoo to OpenAI.
+          AUA alumnus, TUM graduate, and a lifelong hobbyist.
         </p>
 
         <div className="hero-chips">
-          <span className="hero-chip">YC Alum</span>
-          <span className="hero-chip">Stanford ICME</span>
-          <span className="hero-chip">Co-founded Arthena & Matroid</span>
+          <span className="hero-chip">AUA Alum</span>
+          <span className="hero-chip">TUM Management</span>
+          <span className="hero-chip">Data Science & Engineering</span>
         </div>
 
         <div className="hero-cta">

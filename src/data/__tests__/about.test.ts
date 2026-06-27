@@ -10,24 +10,24 @@ describe('about data', () => {
 
   it('contains the intro section', () => {
     expect(aboutMarkdown).toContain('# Intro');
-    expect(aboutMarkdown).toContain('OpenAI');
-    expect(aboutMarkdown).toContain('Promptfoo');
+    expect(aboutMarkdown).toContain('engineer');
+    expect(aboutMarkdown).toContain('lifelong learner');
   });
 
   it('contains the history section', () => {
     expect(aboutMarkdown).toContain('# Some History');
-    expect(aboutMarkdown).toContain('MS-DOS');
+    expect(aboutMarkdown).toContain('bilingual');
   });
 
   it('contains the likes section', () => {
     expect(aboutMarkdown).toContain('# I Like');
-    expect(aboutMarkdown).toContain('Running');
+    expect(aboutMarkdown).toContain('Chess');
     expect(aboutMarkdown).toContain('Skiing');
   });
 
   it('contains the travel section', () => {
     expect(aboutMarkdown).toContain('# Travel / Geography');
-    expect(aboutMarkdown).toContain('Buffalo, New York');
+    expect(aboutMarkdown).toContain('Yerevan, Armenia');
   });
 
   it('contains the fun facts section', () => {
@@ -36,11 +36,7 @@ describe('about data', () => {
 
   it('contains the dreams section', () => {
     expect(aboutMarkdown).toContain('# I Dream Of');
-    expect(aboutMarkdown).toContain('Staying curious');
-  });
-
-  it('contains the admired websites section', () => {
-    expect(aboutMarkdown).toContain('# Websites from People I Admire');
+    expect(aboutMarkdown).toContain('inspiration');
   });
 
   it('contains valid markdown links', () => {
@@ -49,7 +45,7 @@ describe('about data', () => {
     const links = aboutMarkdown.match(linkRegex);
 
     expect(links).not.toBeNull();
-    expect(links!.length).toBeGreaterThan(10);
+    expect(links!.length).toBeGreaterThan(0);
   });
 
   it('contains properly formatted headers', () => {

@@ -16,7 +16,7 @@ import { createPageMetadata } from '@/lib/metadata';
 export const metadata: Metadata = createPageMetadata({
   title: 'Resume',
   description:
-    "Michael D'Angelo's Resume. OpenAI, Promptfoo, Smile ID, Arthena, Matroid, Stanford ICME, YC alum.",
+    "Mark Hovsepyan's Resume. Software Engineer and Data Scientist. Dabble Lab, TutWiser, AUA, TUM.",
   path: '/resume/',
 });
 
@@ -27,12 +27,11 @@ export default function ResumePage() {
         <header className="resume-header">
           <h1 className="resume-title">Resume</h1>
           <p className="resume-summary">
-            Engineering leader with 15+ years building products across AI,
-            security, and infrastructure. Currently Member of the Technical
-            Staff at OpenAI, where I work on Promptfoo and agent security.
-            Previously co-founded Promptfoo, built it into an AI security
-            platform, and sold it to OpenAI. Stanford MS, YC alum, previously VP
-            Engineering.
+            Software Engineer and Data Scientist building data-driven products
+            at Dabble Lab, from smart assistants to machine learning models.
+            Previously co-founded TutWiser. AUA Computer Science graduate and
+            TUM Management alumnus, with a passion for data, entrepreneurship,
+            and lifelong learning.
           </p>
         </header>
 

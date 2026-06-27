@@ -10,9 +10,13 @@ describe('feed.xml route', () => {
     const xml = await response.text();
 
     expect(xml).toContain(`${SITE_URL}/writing/`);
-    expect(xml).toContain(`${SITE_URL}/writing/claude-code-outage/`);
-    expect(xml).toContain(`${SITE_URL}/writing/eurostar-chatbot-analysis/`);
-    expect(xml).toContain(`${SITE_URL}/writing/shipping-with-claude-code/`);
+    // Any internal post links must use canonical trailing slashes.
+    const postLinks = xml.match(
+      new RegExp(`<link>${SITE_URL}/writing/[^<]+</link>`, 'g'),
+    );
+    for (const link of postLinks ?? []) {
+      expect(link).toMatch(/\/<\/link>$/);
+    }
   });
 
   it('keeps the feed self link file-like', async () => {

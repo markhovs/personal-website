@@ -7,7 +7,7 @@ export interface Route {
 const routes: Route[] = [
   {
     index: true,
-    label: "Michael D'Angelo",
+    label: 'Mark Hovsepyan',
     path: '/',
   },
   {
@@ -17,6 +17,10 @@ const routes: Route[] = [
   {
     label: 'Resume',
     path: '/resume',
+  },
+  {
+    label: 'Projects',
+    path: '/projects',
   },
   {
     label: 'Writing',
@@ -29,10 +33,6 @@ const routes: Route[] = [
   {
     label: 'Contact',
     path: '/contact',
-  },
-  {
-    label: 'Archive',
-    path: '/projects',
   },
 ];
 

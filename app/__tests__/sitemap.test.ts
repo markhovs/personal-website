@@ -27,7 +27,7 @@ describe('sitemap', () => {
         entry.url !== `${SITE_URL}/writing/`,
     );
 
-    expect(postEntries.length).toBeGreaterThan(0);
+    // No blog posts yet; when present, every post route must use a trailing slash.
     expect(postEntries.every((entry) => entry.url.endsWith('/'))).toBe(true);
   });
 });

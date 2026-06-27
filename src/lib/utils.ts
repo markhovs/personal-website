@@ -3,18 +3,18 @@
  */
 
 // Site configuration
-export const SITE_URL = 'https://mldangelo.com';
-export const AUTHOR_NAME = "Michael D'Angelo";
-export const TWITTER_HANDLE = '@dangelosaurus';
+export const SITE_URL = 'https://markhovs.com';
+export const AUTHOR_NAME = 'Mark Hovsepyan';
+export const TWITTER_HANDLE = '@markhovs';
 export const SITE_IMAGE_PATH = '/images/me.jpg';
 export const SITE_IMAGE_DIMENSIONS = {
-  width: 1024,
-  height: 1024,
+  width: 1120,
+  height: 1120,
 } as const;
 
 // Canonical one-line bio, shared across page metadata, OpenGraph, and JSON-LD.
 export const SITE_DESCRIPTION =
-  'Member of the Technical Staff at OpenAI, working on Promptfoo and agent security. Previously co-founded Promptfoo, Arthena, and Matroid, and led engineering at Smile ID.';
+  'Software Engineer and Data Scientist. AUA alumnus, TUM graduate, and a lifelong hobbyist building data-driven products.';
 
 // Image dimension constants
 export const AVATAR_SIZE = {
