@@ -1,53 +1,69 @@
-# Personal Website
+# Personal Website Template
 
-See: [markhovs.com](https://markhovs.com).
+[![Build Status](https://img.shields.io/github/actions/workflow/status/mldangelo/personal-site/node.js.yml?branch=main)](https://github.com/mldangelo/personal-site/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/mldangelo/personal-site?style=social)](https://github.com/mldangelo/personal-site/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/mldangelo/personal-site?style=social)](https://github.com/mldangelo/personal-site/network/members)
 
-My personal website. An [MIT](https://github.com/markhovs/personal-website/blob/main/LICENSE) licensed, simple, easily modifiable, statically-exportable [React](https://reactjs.org/), [Jamstack](https://jamstack.org/) application that deploys automatically for free using [github pages](https://pages.github.com/). Built using modern javascript, based on [create-react-app](https://github.com/facebook/create-react-app) with [React-Router](https://reactrouter.com/), SCSS, [github actions](https://github.com/features/actions), and many other useful technologies.
+A free, open-source portfolio website template built with [Next.js](https://nextjs.org/), [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/). Fork it and make it your own in under an hour.
 
-## Adapting this Project
+**[See it live →](https://mldangelo.com)**
 
-Building your own personal website from this project can take as little as 30 minutes. Follow the setup instructions below and review **detailed notes and a checklist on adapting this project [here](./docs/adapting-guide.md)**. Please feel free to reach out to me by filing an issue or emailing me at [help@markhovs.com](mailto:help@markhovs.com) for help configuring your project.
+## Why This Template?
 
-## Dependencies
+- **Zero setup required.** Fork, open in GitHub Codespaces, and start editing.
+- **Modern tech stack.** Next.js 16, React 19, TypeScript, Tailwind CSS v4.
+- **Free hosting.** Deploys automatically to GitHub Pages.
+- **Dark mode.** System preference detection with manual toggle.
+- **Blog ready.** Markdown posts with RSS feed (optional).
+- **AI-friendly.** Works great with GitHub Copilot, Claude, and Cursor.
 
-Tested with: [node](https://nodejs.org/) >= v12 and optional [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) for managing node versions.
+## Get Started
 
-## Set up
-
-To download the repository and install dependencies, run the following commands:
+### Option 1: Local Development
 
 ```bash
-git clone git://github.com/markhovs/personal-website.git # replace [markhovs] with your github username if you fork first.
+gh repo fork mldangelo/personal-site --clone
 cd personal-site
-nvm install # this is optional - make sure you're running >= node 12 with `node --version`
 npm install
+npm run dev
 ```
 
-## Running
+Requires [GitHub CLI](https://cli.github.com/) and Node.js 20+ ([nvm](https://github.com/nvm-sh/nvm) recommended).
 
-Run the following command to build the react application and serve it with fast refresh:
+### Option 2: GitHub Codespaces
+
+1. Click **Fork** at the top of this page
+2. In your fork, click **Code** → **Codespaces** → **Create codespace**
+3. Run `npm run dev`
+
+No local setup needed. Everything runs in your browser.
+
+## Customize It
+
+Follow the **[adapting guide](./docs/adapting-guide.md)** for a step-by-step checklist.
+
+**Pro tip:** Open the adapting guide in Copilot Chat or your favorite AI assistant and ask it to help you customize each section.
+
+## Commands
 
 ```bash
-npm start
+npm run dev      # Start dev server
+npm run build    # Build for production
+npm run format   # Format code
+npm test         # Run tests
 ```
 
-Your web browser should automatically open to `<ip>:<port>:<path>` default: [http://localhost:3000/](http://localhost:3000/).
+## Deploy
 
-## Deploying
+Push to `main` and GitHub Pages deploys automatically. See the [adapting guide](./docs/adapting-guide.md#deployment) for custom domain setup.
 
-### Deploying to Github Pages
+## Contributing
 
-1. Modify the environmental variables and git remote url in [`.github/workflows/github-pages.yml`](.github/workflows/github-pages.yml).
-2. Modify `homepage` in `package.json` to point to where you plan to host your site. If you do not plan on using a custom domain name, it should look like `https://[your-gh-username].github.io/[repository-name - default:personal-site]/`
-3. If you plan on using a custom domain, modify `public/CNAME`. If you don't, delete `public/CNAME`.
+Contributions welcome! If you find a bug or want to improve something, please open a PR.
 
-Make a commit to `main` and push your changes. That's it.
+See [contributing guide](./docs/contributing.md) and [design goals](./docs/design-goals.md).
 
-### Static Export
+## License
 
-To statically export the site without deploying to github pages, delete or disable `.github/workflows/github-pages.yml` and run `npm run predeploy`. This generates a static export of the website as `personal-site/build/`. Copy this and self-host or deploy to a CDN.
-
-## Acknowledgements
-
-- Template based on [Future Imperfect](https://html5up.net/future-imperfect) by [@ajlkn](https://github.com/ajlkn) for [HTML5 UP](html5up.net).
-- Thanks to [@mldangelo](https://github.com/mldangelo) for the code for this website. Original project can be found at [https://github.com/mldangelo/personal-site](https://github.com/mldangelo/personal-site)
+[MIT](./LICENSE). Use it however you want.

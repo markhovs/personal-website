@@ -1,90 +1,158 @@
-# Adapting this Website
+# Adapting This Website
 
-Many people have contacted me about adapting this website. I have tried to make things as simple as possible. There are still bugs. I am sorry. If you find a bug, please email me (help@markhovs.com), submit a pull request (I'll buy you a coffee as a thank you), or submit an issue.
+Fork this repo and make it your own personal site. You can have it running in 30 minutes.
 
-You may wish to fork this repository or remove my remote origin and add your own. Go [here](https://help.github.com/articles/changing-a-remote-s-url/) for more information on how to change remotes.
+> **Using an AI assistant?** This guide works great with Claude, Cursor, Copilot, etc. Just point your AI to this file and ask it to help you customize the site.
 
-## Before you start
+## Before You Start
 
-1. Make sure you have a good text editor. I recommend [Visual Studio Code](https://code.visualstudio.com/).
-1. Review `src/App.js`. This file contains all of our route definitions. If you wish to add or remove a page, you should do so here.
+1. Fork and clone the repository
+2. Run `npm install` then `npm run dev`
+3. Open http://localhost:3000 to see the site
+4. Keep the dev server running—changes appear instantly
 
-## Checklist
+## Customization Checklist
 
-### Setup
+Work through these steps in order for the smoothest experience.
 
-1. Run the project before making any modifications by following the set up and running instructions in the main [README.md](https://github.com/markhovs/personal-website#set-up).
-1. Change `homepage` in `package.json` to reflect where you plan to host the site. This is important for static exporting via react-snap. This also changes your path when developing locally. For example, a homepage of `markhovs.com` places the site at `localhost:3000` and a homepage of `https://markhovs.github.io/personal-website/` places the site at `localhost:3000/personal-site/`. If you plan to host at on a path such as `https://[your-github-username].github.io/[your-repo-name]`, you should set this now so that your development environment mirrors your production environment.
-1. Create a `.env` file. To do this, run:
+### Step 1: Identity & Contact
 
-    ```bash
-    cp sample.env .env
-    ```
+| What to change  | File                                        | Notes                           |
+| --------------- | ------------------------------------------- | ------------------------------- |
+| Site URL        | `package.json` → `homepage`                 | Your domain or GitHub Pages URL |
+| Social links    | `src/data/contact.ts`                       | Add/remove platforms as needed  |
+| Portrait photos | `public/images/me-light.jpg`, `me-dark.jpg` | Square images, ~256×256px       |
+| Hero content    | `src/components/Template/Hero.tsx`          | Your name, tagline              |
+| Footer          | `src/components/Template/Footer.tsx`        | Links, copyright                |
 
-    and set values as appropriate. Most people will not need to modify this file.
+### Step 2: About Page
 
-### Adapt Content
+| What to change         | File                |
+| ---------------------- | ------------------- |
+| Bio, intro, everything | `src/data/about.ts` |
 
-I recommend keeping the project running as you go (with `npm start`) to help correct mistakes quickly.
+### Step 3: Resume
 
-1. Start by changing text in the sidebar. This file is located at `src/components/Template/SideBar.js`.
-1. Add an image of yourself in `public/images/me.jpg`. Your image should be approximately 256 x 256 pixels. Larger and smaller is ok, but avoid very large images to save bandwidth. If you need help resizing your image, Adobe makes a great online tool [here](https://www.adobe.com/photoshop/online/resize-image.html).
-1. Modify the text on the homepage. This file is located at `src/pages/Index.js`.
-1. Modify the files in `src/data/resume/` next.
-1. Modify all of the other files in the `src/data/` directory.
-1. You've finished modifying >95% of the pages. Search through the rest of the files for references to `Mark` or `Hovsepyan` and change values to your name.
-1. Change or remove the favicon in `public/index.html`. [This](https://realfavicongenerator.net/) website may be helpful.
+| What to change      | File                         |
+| ------------------- | ---------------------------- |
+| Work experience     | `src/data/resume/work.ts`    |
+| Education           | `src/data/resume/degrees.ts` |
+| Skills & categories | `src/data/resume/skills.ts`  |
+| Courses (optional)  | `src/data/resume/courses.ts` |
 
-### Deploy
+### Step 4: Projects
 
-See deployment instructions [here](https://github.com/markhovs/personal-site#deploying-to-github-pages). If you plan to use a custom url, modify `public/CNAME` and enter your URL. You can run:
+| What to change  | File                      |
+| --------------- | ------------------------- |
+| Project entries | `src/data/projects.ts`    |
+| Project images  | `public/images/projects/` |
 
-```bash
-echo "[your-custom-domain][.com]" > public/CNAME
+### Step 5: Blog/Writing (Optional)
+
+The site includes a blog at `/writing` with RSS feed. You can use it, customize it, or remove it entirely.
+
+**To add posts**, create Markdown files in `content/writing/`. The filename becomes the URL slug (e.g., `my-post.md` → `/writing/my-post`).
+
+```markdown
+---
+title: 'Your Post Title'
+date: '2026-01-15'
+description: 'A brief description for previews and SEO.'
+---
+
+Your content here...
 ```
 
-as a shortcut.
+**To disable the blog entirely:**
 
-I recommend purchasing your own domain name from [Google Domains](https://domains.google). If you would like to host on github pages, run `npm run deploy`. This generates a new branch called `gh-pages`. Then go to `https://github.com/[your-github-username]/[your-repo-name]/settings` and configure accordingly:
+```bash
+rm -rf app/writing app/feed.xml content/writing
+```
 
-<center><img src="images/gh-pages.png"></center>
+Then remove the "Writing" link from `src/data/routes.ts`.
 
-Next, configure your domains DNS record. See [here](https://help.github.com/articles/using-a-custom-domain-with-github-pages/) for more information. After a few minutes, your website should be live on your domain.
+### Step 6: Branding & Theme
 
-That's it. Thank you for reading. If you go through this guide and run into issues or areas you find unclear, please consider submitting a PR to help others like you.
+| What to change      | File                                       |
+| ------------------- | ------------------------------------------ |
+| Colors (light/dark) | `app/tailwind.css` → CSS custom properties |
+| Favicon             | `public/images/favicon/`                   |
+| Site metadata/SEO   | `app/layout.tsx`                           |
 
-## Common Pitfalls
+### Step 7: Final Cleanup
 
-Here are answers to questions I've been asked at least twice. I've attempted to simplify development and improve documentation throughout the project to address them. This section is updated frequently.
+Search the codebase for "Michael" or "mldangelo" to find any remaining references to change.
 
-1. My CSS isn't rendering, or I see a 404 instead of my site:
+```bash
+grep -r "Michael" src/
+grep -r "mldangelo" .
+```
 
-    Make sure the `homepage` field of `package.json` points to where you plan to host your site index. Also, double check that you created a `CNAME` file (see deployment instructions above). If neither of these work, please open an issue or send me an [email](mailto:help@markhovs.com).
+## Deployment
 
-2. LF / CRLF issues with eslint.
+### GitHub Pages (Recommended)
 
-    This is a common Windows development pitfall. See @[FrozenFury](https://github.com/FrozenFury)'s [comment](https://github.com/mldangelo/personal-site/issues/263#issuecomment-759216299) for how to update your eslint config to resolve this issue.
+1. Update `homepage` in `package.json` with your URL
+2. Set your domain in `public/CNAME` (e.g., `yoursite.com`)
+3. In your repo settings, enable GitHub Pages with source: GitHub Actions
+4. Push to `main`—it deploys automatically
 
-3. master / main
+### Custom Domain
 
-    Github decided to rename the default branch of all of their repositories from master to main, and so did I. See their reasoning [here](https://github.com/github/renaming). If you're trying to pull in recent changes, consider renaming your own branch, or just create a merge commit from my main.
+1. Purchase a domain from Squarespace Domains, Cloudflare, or Namecheap
+2. Add your domain to `public/CNAME`:
+   ```bash
+   echo "yourdomain.com" > public/CNAME
+   ```
+3. Configure DNS per [GitHub's documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)
 
-4. Google Analytics Warnings when exporting.
+### Other Hosts
 
-    Either set up Google Analytics or disable the `Analytics.js` component. Read more about [react-ga](https://github.com/react-ga/react-ga).
+Run `npm run build` and upload the `out/` directory to any static host (Vercel, Netlify, S3, etc.).
 
-5. How do I configure git? What is nano?
+## Common Tasks
 
-    Read through [git-scm](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)'s excellent documentation. I recommend setting your default text editor to something you're comfortable with.I like to use vim for writing commit messages.
+### Remove a page
 
-6. Can I host at [username.github.io]?
+Delete its folder from `app/` and remove the link from `src/data/routes.ts`.
 
-    Sure, see github's documentation [here](https://pages.github.com/). You will need to change branches. Create a new branch off of main, and configure `gh-pages` to write to main instead of a `gh-pages` branch.
+```bash
+rm -rf app/stats  # removes the /stats page
+```
 
-7. How do I disable eslint?
+### Add a social icon
 
-    `echo "*\n" > .eslintignore` Although I really don't recommend it. Linters are good. They help prevent errors, enforce uniform style so that you can spend less time thinking about formatting and more time reading code, and eliminate easy nits for code reviews. If the rules aren't working for you, you should change them. See eslint's documentation [here](https://eslint.org/docs/about/) for more information.
+In `src/data/contact.ts`, import from Font Awesome and add to the array:
 
-8. Why is my website rendering the readme file?
+```typescript
+import { faYoutube } from '@fortawesome/free-brands-svg-icons/faYoutube';
+// Add to data array:
+{ link: 'https://youtube.com/@you', label: 'YouTube', icon: faYoutube },
+```
 
-    See 1. above and make sure that `.nojekyll` still exists in `public`. This file directs github to not attempt to render the website with Jekyll.
+### Change theme colors
+
+Edit `app/tailwind.css`. Find `:root` (light mode) and `[data-theme="dark"]` (dark mode) sections and modify the `--color-*` variables.
+
+### Add Google Analytics
+
+1. Create `.env.local` from the example: `cp .env.example .env.local`
+2. Add your GA4 measurement ID: `NEXT_PUBLIC_GA_TRACKING_ID=G-XXXXXXX`
+
+## Troubleshooting
+
+| Problem                    | Solution                                                   |
+| -------------------------- | ---------------------------------------------------------- |
+| Port 3000 in use           | `npm run dev -- -p 3001`                                   |
+| Styles not updating        | Hard refresh: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows)  |
+| Images not appearing       | Use `/images/...` not `public/images/...` in code          |
+| Build failing              | Run `npm run type-check` to find errors                    |
+| CSS 404 or wrong path      | Check `homepage` in `package.json` matches your deploy URL |
+| Git line endings (Windows) | `git config core.autocrlf input`                           |
+
+## Getting Help
+
+- Open an issue: https://github.com/mldangelo/personal-site/issues
+- Email: help@mldangelo.com
+
+If you find bugs or unclear instructions, please submit a PR—contributions help everyone.

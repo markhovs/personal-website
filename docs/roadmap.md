@@ -1,48 +1,37 @@
 # Roadmap
 
-This site has been a work in progress since 2014. I have tried to make updates to reflect a) my knowledge of web development and b) current best practices. It will continue to evolve a as a WIP guided by the following design goals.
+This site has been a work in progress since 2014, evolving to reflect current best practices, guided by the [design goals](./design-goals.md).
+
+## Recently Completed (2024-2026)
+
+**Features**
+
+- Writing/blog page with RSS feed (`/writing`, `/feed.xml`)
+- Dark mode with system preference detection and manual toggle
+- Theme-aware portraits for light/dark modes
+- Modernized favicon with SVG source
+
+**Infrastructure**
+
+- Migrated from SCSS to Tailwind CSS v4
+- Migrated from Jest to Vitest with 76%+ test coverage (268 tests)
+- Upgraded to Next.js 16 (App Router, Turbopack) and React 19
+- Migrated from ESLint to Biome
+- Replaced react-burger-menu with native slide menu
+- TypeScript strict mode throughout
+- Google Analytics 4 via @next/third-parties
+- SEO: sitemap, Open Graph, structured metadata
 
 ## Future Direction
 
-### Improvements
+**Improvements**
 
-- use JSON resume instead of reinventing the wheel (perform literature search for wiki data resume standard).
-- Fix navbar (use nav provided by template) -> Reduce Bundle size.
-- Separate concerns better in src/data. Some files are data, others are template variables.
-- Get better at redefining duplicate types. They are especially prevalent in resume components.
-- Make code splitting better - some bundles are under 1KB.
-- Make styles more modular.
-- Make FA integration less terrible (consider building FA library).
-- Simplify Favicon. See: https://news.ycombinator.com/item?id=25520655
-- Better tests
-  - one test per component.
-  - test using puppeteer again.
-  - test cross browser compatibility.
-  - Use google lighthouse.
-- Introduce a spell checker.
+- Adopt [JSON Resume](https://jsonresume.org/) standard
+- Add Playwright for e2e testing
+- Optimize FontAwesome (consider custom icon library)
+- Improve accessibility (WCAG compliance)
 
-### New Features
+**Repository**
 
-- Completely gut and redo server integration, use JWT
-  - auto deploy backend, keep frontend on CDN.
-- revisit posts/blog
-  - put one or two examples up from my knowledge base.
-
-### Repository Cleanup
-
-- Don't allow pushes to main.
-- Generate releases using github action (increment version in package.json too) using semantic versioning.
-- Add contributing guidelines.
-- encourage more PRs that support this roadmap / pay bug bounties.
-- Build something that allows people to propose changes.
-- Make main / server distinction cleaner -> make sure PRs to main also land in server.
-
-- Implement better analytics
-- Capture information about the community of people that have cloned this site.
-
-### Under Consideration
-
-- Use typescript everywhere instead of Vanilla JS/JSX - will this hinder new developer experience?
-- Add support for more exotic integrations (reason, webassembly).
-- hydrate all unique content on the site from one location -> deploy as npm package + json.
-- Use husky for git pre-commit hooks.
+- Branch protection for main
+- Automated releases with semantic versioning
