@@ -18,20 +18,22 @@ describe('Hero', () => {
     expect(heading).toHaveTextContent('Mark Hovsepyan');
   });
 
-  it('renders the tagline with a Dabble Lab link', () => {
+  it('renders the tagline with a SAP Fioneer link', () => {
     render(<Hero />);
 
-    const dabbleLabLink = screen.getByRole('link', { name: /dabble lab/i });
-    expect(dabbleLabLink).toHaveAttribute('href', 'https://dabblelab.com');
-    expect(dabbleLabLink).toHaveClass('hero-highlight');
+    const fioneerLink = screen.getByRole('link', { name: /sap fioneer/i });
+    expect(fioneerLink).toHaveAttribute('href', 'https://www.sapfioneer.com');
+    expect(fioneerLink).toHaveClass('hero-highlight');
   });
 
   it('displays hero chips for credentials', () => {
     render(<Hero />);
 
-    expect(screen.getByText('AUA Alum')).toBeInTheDocument();
+    expect(
+      screen.getByText('SAP Fioneer', { selector: '.hero-chip' }),
+    ).toBeInTheDocument();
     expect(screen.getByText('TUM Management')).toBeInTheDocument();
-    expect(screen.getByText('Data Science & Engineering')).toBeInTheDocument();
+    expect(screen.getByText('AUA Computer Science')).toBeInTheDocument();
   });
 
   it('renders CTA buttons with correct links', () => {

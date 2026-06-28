@@ -15,19 +15,20 @@ export default function Hero() {
         </h1>
 
         <p className="hero-tagline">
-          Software Engineer and Data Scientist building data-driven products at{' '}
-          <a href="https://dabblelab.com" className="hero-highlight">
-            Dabble Lab
-          </a>
-          .
+          Builder and technology geek bridging engineering and business. Senior
+          Business Solution Consultant at{' '}
+          <a href="https://www.sapfioneer.com" className="hero-highlight">
+            SAP Fioneer
+          </a>{' '}
+          in Munich.
           <br />
-          AUA alumnus, TUM graduate, and a lifelong hobbyist.
+          Entrepreneur at heart, and a relentless lifelong learner.
         </p>
 
         <div className="hero-chips">
-          <span className="hero-chip">AUA Alum</span>
+          <span className="hero-chip">SAP Fioneer</span>
           <span className="hero-chip">TUM Management</span>
-          <span className="hero-chip">Data Science & Engineering</span>
+          <span className="hero-chip">AUA Computer Science</span>
         </div>
 
         <div className="hero-cta">

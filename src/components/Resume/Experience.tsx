@@ -14,7 +14,7 @@ export default function Experience({ data }: ExperienceProps) {
         <h3>Experience</h3>
       </div>
       {data.map((job) => (
-        <Job data={job} key={`${job.name}-${job.position}`} />
+        <Job data={job} key={job.name} />
       ))}
     </div>
   );

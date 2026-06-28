@@ -22,13 +22,20 @@ describe('ResumeNav', () => {
       'href',
       '#education',
     );
+    expect(
+      screen.getByRole('link', { name: /certifications/i }),
+    ).toHaveAttribute('href', '#certifications');
+    expect(screen.getByRole('link', { name: /volunteering/i })).toHaveAttribute(
+      'href',
+      '#volunteering',
+    );
+    expect(screen.getByRole('link', { name: /awards/i })).toHaveAttribute(
+      'href',
+      '#awards',
+    );
     expect(screen.getByRole('link', { name: /skills/i })).toHaveAttribute(
       'href',
       '#skills',
-    );
-    expect(screen.getByRole('link', { name: /courses/i })).toHaveAttribute(
-      'href',
-      '#courses',
     );
     expect(screen.getByRole('link', { name: /references/i })).toHaveAttribute(
       'href',
@@ -36,11 +43,11 @@ describe('ResumeNav', () => {
     );
   });
 
-  it('renders 5 navigation links', () => {
+  it('renders 7 navigation links', () => {
     render(<ResumeNav />);
 
     const links = screen.getAllByRole('link');
-    expect(links.length).toBe(5);
+    expect(links.length).toBe(7);
   });
 
   it('has correct CSS class', () => {

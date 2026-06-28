@@ -64,6 +64,8 @@ export function personNode(): SchemaNode {
   const email = emailItem?.link.replace('mailto:', '');
 
   const currentJob = work[0];
+  const currentRole =
+    currentJob.roles.find((role) => !role.endDate) ?? currentJob.roles[0];
 
   const [givenName, ...familyParts] = AUTHOR_NAME.split(' ');
   const familyName = familyParts.join(' ');
@@ -84,7 +86,7 @@ export function personNode(): SchemaNode {
       caption: AUTHOR_NAME,
     },
     description: SITE_DESCRIPTION,
-    jobTitle: currentJob.position,
+    jobTitle: currentRole.position,
     ...(email && { email }),
     sameAs: socialLinks,
     worksFor: {

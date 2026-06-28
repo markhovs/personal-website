@@ -6,7 +6,9 @@ import work from '@/data/resume/work';
 import ThemePortrait from './ThemePortrait';
 
 export default function Footer() {
-  const currentRole = `${work[0].position} at ${work[0].name}`;
+  const current =
+    work[0].roles.find((role) => !role.endDate) ?? work[0].roles[0];
+  const currentRole = `${current.position} at ${work[0].name}`;
 
   return (
     <footer className="site-footer-new">

@@ -44,18 +44,22 @@ describe('Site', () => {
     const Component = await Site();
     render(Component);
 
+    expect(screen.getByText('Number of linter warnings')).toBeInTheDocument();
     expect(
-      screen.getByText('Stars this repository has on github'),
+      screen.getByText('Future passions queued on my Notion list'),
     ).toBeInTheDocument();
-    expect(screen.getByText('Number of forks')).toBeInTheDocument();
-    expect(screen.getByText('Number of spoons')).toBeInTheDocument();
+    expect(
+      screen.getByText('Lines of TypeScript powering this website'),
+    ).toBeInTheDocument();
   });
 
   it('displays static values for non-GitHub stats', async () => {
     const Component = await Site();
     render(Component);
 
-    expect(screen.getByText('Number of spoons')).toBeInTheDocument();
+    expect(
+      screen.getByText('Future passions queued on my Notion list'),
+    ).toBeInTheDocument();
     expect(screen.getByText('Number of linter warnings')).toBeInTheDocument();
     expect(
       screen.getByText('Lines of TypeScript powering this website'),
@@ -80,7 +84,7 @@ describe('Site', () => {
     render(Component);
 
     const links = document.querySelectorAll(
-      'a[href="https://github.com/markhovs/personal-website/stargazers"]',
+      'a[href="https://github.com/markhovs/personal-website/commits"]',
     );
     expect(links.length).toBeGreaterThan(0);
   });
@@ -89,15 +93,14 @@ describe('Site', () => {
     const Component = await Site();
     render(Component);
 
-    expect(
-      screen.getByText('Stars this repository has on github'),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('Number of people watching this repository'),
-    ).toBeInTheDocument();
-    expect(screen.getByText('Number of forks')).toBeInTheDocument();
-    expect(screen.getByText('Open github issues')).toBeInTheDocument();
     expect(screen.getByText('Last updated at')).toBeInTheDocument();
+    expect(
+      screen.getByText('Lines of TypeScript powering this website'),
+    ).toBeInTheDocument();
+    expect(screen.getByText('Number of linter warnings')).toBeInTheDocument();
+    expect(
+      screen.getByText('Future passions queued on my Notion list'),
+    ).toBeInTheDocument();
   });
 
   it('uses fallback data when fetch fails', async () => {

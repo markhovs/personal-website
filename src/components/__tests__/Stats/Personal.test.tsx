@@ -28,14 +28,14 @@ describe('Personal', () => {
     render(<Personal />);
 
     expect(screen.getByText('Countries visited')).toBeInTheDocument();
-    expect(screen.getByText('8')).toBeInTheDocument();
+    expect(screen.getByText('15')).toBeInTheDocument();
   });
 
   it('displays current city', () => {
     render(<Personal />);
 
     expect(screen.getByText('Current city')).toBeInTheDocument();
-    expect(screen.getByText('Yerevan, AM')).toBeInTheDocument();
+    expect(screen.getByText('Munich, DE')).toBeInTheDocument();
   });
 
   it('updates age over time', async () => {

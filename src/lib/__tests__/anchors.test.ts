@@ -32,7 +32,6 @@ describe('createHeadingId', () => {
         createHeadingId(title),
       ]),
     ).toEqual([
-      ['Currently', 'currently'],
       ['Some History', 'some-history'],
       ['I Like', 'i-like'],
       ['Travel / Geography', 'travel-geography'],

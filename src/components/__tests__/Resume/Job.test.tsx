@@ -6,10 +6,14 @@ import Job from '../../Resume/Experience/Job';
 describe('Job', () => {
   const mockJob = {
     name: 'Acme Corp',
-    position: 'Senior Engineer',
     url: 'https://acme.com',
-    startDate: '2020-01-15',
-    endDate: '2023-06-30',
+    roles: [
+      {
+        position: 'Senior Engineer',
+        startDate: '2020-01-15',
+        endDate: '2023-06-30',
+      },
+    ],
     summary: 'Led development of **critical systems**.',
     highlights: ['Shipped feature X', 'Improved performance by 50%'],
   };
@@ -21,12 +25,30 @@ describe('Job', () => {
     expect(link).toHaveAttribute('href', 'https://acme.com');
   });
 
-  it('renders position title', () => {
+  it('renders role position', () => {
     render(<Job data={mockJob} />);
 
-    expect(screen.getByRole('heading', { level: 4 })).toHaveTextContent(
-      'Senior Engineer',
-    );
+    expect(screen.getByText('Senior Engineer')).toBeInTheDocument();
+  });
+
+  it('renders multiple roles as a timeline', () => {
+    const multiRole = {
+      ...mockJob,
+      roles: [
+        {
+          position: 'Engineer',
+          startDate: '2020-01-15',
+          endDate: '2021-06-30',
+        },
+        { position: 'Senior Engineer', startDate: '2021-07-01' },
+      ],
+    };
+
+    render(<Job data={multiRole} />);
+
+    expect(screen.getByText('Engineer')).toBeInTheDocument();
+    expect(screen.getByText('Senior Engineer')).toBeInTheDocument();
+    expect(document.querySelectorAll('.role-timeline .role').length).toBe(2);
   });
 
   it('formats date range correctly', () => {
@@ -36,10 +58,10 @@ describe('Job', () => {
     expect(screen.getByText(/june 2023/i)).toBeInTheDocument();
   });
 
-  it('shows Present for current job (no end date)', () => {
+  it('shows Present for a current role (no end date)', () => {
     const currentJob = {
       ...mockJob,
-      endDate: undefined,
+      roles: [{ position: 'Senior Engineer', startDate: '2020-01-15' }],
     };
 
     render(<Job data={currentJob} />);
@@ -50,7 +72,6 @@ describe('Job', () => {
   it('renders summary with markdown', () => {
     render(<Job data={mockJob} />);
 
-    // Summary text should be present
     expect(screen.getByText(/led development of/i)).toBeInTheDocument();
   });
 
@@ -65,26 +86,18 @@ describe('Job', () => {
   });
 
   it('handles missing summary gracefully', () => {
-    const jobWithoutSummary = {
-      ...mockJob,
-      summary: undefined,
-    };
+    const jobWithoutSummary = { ...mockJob, summary: undefined };
 
     render(<Job data={jobWithoutSummary} />);
 
-    // Should not crash, highlights should still render
     expect(screen.getByText('Shipped feature X')).toBeInTheDocument();
   });
 
   it('handles missing highlights gracefully', () => {
-    const jobWithoutHighlights = {
-      ...mockJob,
-      highlights: undefined,
-    };
+    const jobWithoutHighlights = { ...mockJob, highlights: undefined };
 
     render(<Job data={jobWithoutHighlights} />);
 
-    // Should not crash, summary should still render
     expect(screen.getByText(/led development/i)).toBeInTheDocument();
 
     const list = document.querySelector('.points');

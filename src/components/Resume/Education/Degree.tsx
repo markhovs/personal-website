@@ -14,6 +14,13 @@ export default function Degree({ data }: DegreeProps) {
           <time dateTime={String(data.year)}>{data.year}</time>
         </p>
       </header>
+      {data.highlights && data.highlights.length > 0 ? (
+        <ul className="points">
+          {data.highlights.map((highlight) => (
+            <li key={highlight}>{highlight}</li>
+          ))}
+        </ul>
+      ) : null}
     </article>
   );
 }

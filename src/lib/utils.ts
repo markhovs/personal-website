@@ -8,13 +8,13 @@ export const AUTHOR_NAME = 'Mark Hovsepyan';
 export const TWITTER_HANDLE = '@markhovs';
 export const SITE_IMAGE_PATH = '/images/me.jpg';
 export const SITE_IMAGE_DIMENSIONS = {
-  width: 1120,
-  height: 1120,
+  width: 1200,
+  height: 1200,
 } as const;
 
 // Canonical one-line bio, shared across page metadata, OpenGraph, and JSON-LD.
 export const SITE_DESCRIPTION =
-  'Software Engineer and Data Scientist. AUA alumnus, TUM graduate, and a lifelong hobbyist building data-driven products.';
+  'Builder and technology geek bridging engineering and business. Senior Business Solution Consultant at SAP Fioneer, Munich. Entrepreneur & lifelong learner.';
 
 // Image dimension constants
 export const AVATAR_SIZE = {

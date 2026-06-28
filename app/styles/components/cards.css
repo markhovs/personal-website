@@ -211,6 +211,10 @@
   margin-bottom: 0;
 }
 
+.jobs-container header {
+  margin-bottom: 0.9rem;
+}
+
 .jobs-container header h4 {
   font-size: var(--text-xl);
   font-weight: var(--font-weight-black);
@@ -227,12 +231,29 @@
   color: var(--color-accent);
 }
 
+.jobs-container .role-timeline {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+}
+
 .jobs-container .role {
-  display: block;
-  font-weight: var(--font-weight-medium);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.1rem 1rem;
+  margin-top: 0.3rem;
+}
+
+.jobs-container .role-position {
+  font-weight: var(--font-weight-bold);
   color: var(--color-fg);
   font-size: var(--text-md);
-  margin-top: 0.25rem;
+}
+
+.jobs-container .role .daterange {
+  margin-bottom: 0;
 }
 
 .jobs-container .points {

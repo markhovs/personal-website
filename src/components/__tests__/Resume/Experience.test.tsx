@@ -6,19 +6,27 @@ import Experience from '../../Resume/Experience';
 const mockJobs = [
   {
     name: 'Acme Corp',
-    position: 'Senior Engineer',
     url: 'https://acme.com',
-    startDate: '2020-01-01',
-    endDate: '2023-06-30',
+    roles: [
+      {
+        position: 'Senior Engineer',
+        startDate: '2020-01-01',
+        endDate: '2023-06-30',
+      },
+    ],
     summary: 'Led engineering team.',
     highlights: ['Built features', 'Improved performance'],
   },
   {
     name: 'Startup Inc',
-    position: 'Software Engineer',
     url: 'https://startup.com',
-    startDate: '2018-01-01',
-    endDate: '2019-12-31',
+    roles: [
+      {
+        position: 'Software Engineer',
+        startDate: '2018-01-01',
+        endDate: '2019-12-31',
+      },
+    ],
     highlights: ['Wrote code'],
   },
 ];
