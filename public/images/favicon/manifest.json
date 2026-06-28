@@ -1,8 +1,8 @@
 {
   "name": "markhovs.com",
   "short_name": "MH",
-  "theme_color": "#2e59ba",
-  "background_color": "#2e59ba",
+  "theme_color": "#6d28d9",
+  "background_color": "#6d28d9",
   "display": "standalone",
   "icons": [
     {
