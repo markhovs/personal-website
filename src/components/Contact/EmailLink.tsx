@@ -20,7 +20,7 @@ function prefersReducedMotion(): boolean {
 const messages = [
   'hi',
   'hello',
-  'hola',
+  'servus',
   'you-can-email-me-at-literally-anything! Really',
   'well, not anything. But most things',
   'like-this',
