@@ -3,66 +3,61 @@ import { describe, expect, it } from 'vitest';
 import work from '../resume/work';
 
 describe('work data', () => {
-  it('exports an array of positions', () => {
+  it('exports an array of companies', () => {
     expect(Array.isArray(work)).toBe(true);
     expect(work.length).toBeGreaterThan(0);
   });
 
-  it('each position has required properties', () => {
+  it('each company has a name and at least one role', () => {
     for (const job of work) {
-      expect(job).toHaveProperty('name');
-      expect(job).toHaveProperty('position');
-      expect(job).toHaveProperty('url');
-      expect(job).toHaveProperty('startDate');
-
       expect(typeof job.name).toBe('string');
-      expect(typeof job.position).toBe('string');
-      expect(typeof job.url).toBe('string');
-      expect(typeof job.startDate).toBe('string');
+      expect(job.name.trim().length).toBeGreaterThan(0);
+      expect(Array.isArray(job.roles)).toBe(true);
+      expect(job.roles.length).toBeGreaterThan(0);
     }
   });
 
-  it('startDate is a valid date string', () => {
+  it('each role has a position and a valid start date', () => {
     for (const job of work) {
-      const date = new Date(job.startDate);
-      expect(date.toString()).not.toBe('Invalid Date');
-    }
-  });
-
-  it('endDate is valid when present', () => {
-    for (const job of work) {
-      if (job.endDate) {
-        const date = new Date(job.endDate);
-        expect(date.toString()).not.toBe('Invalid Date');
+      for (const role of job.roles) {
+        expect(typeof role.position).toBe('string');
+        expect(role.position.trim().length).toBeGreaterThan(0);
+        expect(new Date(role.startDate).toString()).not.toBe('Invalid Date');
       }
     }
   });
 
-  it('endDate is after startDate when present', () => {
+  it('role endDate is valid and after startDate when present', () => {
     for (const job of work) {
-      if (job.endDate) {
-        const start = new Date(job.startDate);
-        const end = new Date(job.endDate);
-        expect(end.getTime()).toBeGreaterThan(start.getTime());
+      for (const role of job.roles) {
+        if (role.endDate) {
+          const start = new Date(role.startDate);
+          const end = new Date(role.endDate);
+          expect(end.toString()).not.toBe('Invalid Date');
+          expect(end.getTime()).toBeGreaterThan(start.getTime());
+        }
       }
     }
   });
 
-  it('urls are valid', () => {
+  it('urls are valid when present', () => {
     const urlRegex = /^https?:\/\/.+/;
 
     for (const job of work) {
-      expect(job.url).toMatch(urlRegex);
+      if (job.url) {
+        expect(job.url).toMatch(urlRegex);
+      }
     }
   });
 
-  // Resume should show at least one current/active position
-  it('has at least one current position (no endDate)', () => {
-    const currentJobs = work.filter((job) => !job.endDate);
-    expect(currentJobs.length).toBeGreaterThanOrEqual(1);
+  it('has at least one current role (no endDate)', () => {
+    const currentRoles = work.flatMap((job) =>
+      job.roles.filter((role) => !role.endDate),
+    );
+    expect(currentRoles.length).toBeGreaterThanOrEqual(1);
   });
 
-  it('highlights are arrays when present', () => {
+  it('highlights are non-empty arrays when present', () => {
     for (const job of work) {
       if (job.highlights) {
         expect(Array.isArray(job.highlights)).toBe(true);
@@ -71,16 +66,10 @@ describe('work data', () => {
     }
   });
 
-  it('has at least one position with a valid start year', () => {
-    const years = work.map((job) => new Date(job.startDate).getFullYear());
-    const uniqueYears = new Set(years);
-
-    expect(uniqueYears.size).toBeGreaterThanOrEqual(1);
-  });
-
-  it('company names are non-empty', () => {
-    for (const job of work) {
-      expect(job.name.trim().length).toBeGreaterThan(0);
-    }
+  it('spans multiple years across roles', () => {
+    const years = work.flatMap((job) =>
+      job.roles.map((role) => new Date(role.startDate).getFullYear()),
+    );
+    expect(new Set(years).size).toBeGreaterThan(1);
   });
 });

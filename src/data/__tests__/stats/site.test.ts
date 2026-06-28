@@ -16,20 +16,9 @@ describe('site stats data', () => {
     }
   });
 
-  it('has GitHub API stats with expected keys', () => {
-    const expectedKeys = [
-      'stargazers_count',
-      'subscribers_count',
-      'forks',
-      'open_issues_count',
-      'pushed_at',
-    ];
-
-    // Verify each expected GitHub API key is present
-    for (const key of expectedKeys) {
-      const stat = data.find((s) => s.key === key);
-      expect(stat).toBeDefined();
-    }
+  it('has the GitHub-sourced last-updated stat', () => {
+    const stat = data.find((s) => s.key === 'pushed_at');
+    expect(stat).toBeDefined();
   });
 
   it('has static stats without keys', () => {
@@ -38,8 +27,8 @@ describe('site stats data', () => {
     expect(staticStats.length).toBeGreaterThan(0);
 
     // Check for known static stats
-    expect(staticStats.some((s) => s.label.includes('spoons'))).toBe(true);
     expect(staticStats.some((s) => s.label.includes('linter'))).toBe(true);
+    expect(staticStats.some((s) => s.label.includes('Notion'))).toBe(true);
   });
 
   it('stats with links have valid URLs', () => {

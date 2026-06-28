@@ -3,38 +3,30 @@ export interface Degree {
   degree: string;
   link: string;
   year: number;
+  highlights?: string[];
 }
 
 const degrees: Degree[] = [
   {
-    school: 'Technische Universität München',
+    school: 'Technical University of Munich',
     degree: 'M.S. in Management',
     link: 'https://www.tum.de/en/',
-    year: 2024,
-  },
-  {
-    school: 'DAAD',
-    degree: 'DAAD Scholarship',
-    link: 'https://www.daad.de/en/',
-    year: 2024,
-  },
-  {
-    school: 'American University of Armenia',
-    degree: 'B.S. in Computer Science',
-    link: 'https://aua.am/',
-    year: 2020,
+    year: 2025,
+    highlights: [
+      'DAAD Scholarship holder (2022–2024).',
+      'TUM Entrepreneurial Masterclass — Fellow, Batch 17.',
+      'Thesis: "Comparative Assessment of Technologies for Implementing Digital Product Passport Systems."',
+    ],
   },
   {
     school: 'American University of Armenia',
-    degree: 'Minor in Philosophy, Politics & Economics (PPE)',
+    degree:
+      'B.S. in Computer Science (Minor in Philosophy, Politics & Economics)',
     link: 'https://aua.am/',
     year: 2020,
-  },
-  {
-    school: 'Hakob Kojoyan Art Educational Complex',
-    degree: 'High School',
-    link: 'https://kojoyan.schoolsite.am/',
-    year: 2015,
+    highlights: [
+      'Thesis: "Deepchar: Transliteration using Natural Language Processing."',
+    ],
   },
 ];
 

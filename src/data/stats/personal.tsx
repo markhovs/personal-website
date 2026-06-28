@@ -46,12 +46,12 @@ const data: StatData[] = [
   {
     key: 'countries',
     label: 'Countries visited',
-    value: 8,
+    value: 15,
   },
   {
     key: 'location',
     label: 'Current city',
-    value: 'Yerevan, AM',
+    value: 'Munich, DE',
   },
 ];
 

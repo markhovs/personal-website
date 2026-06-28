@@ -1,5 +1,4 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
 import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
@@ -33,11 +32,6 @@ const data: ContactItem[] = [
     link: 'https://www.instagram.com/markhovs/',
     label: 'Instagram',
     icon: faInstagram,
-  },
-  {
-    link: 'https://www.facebook.com/mark.hovs',
-    label: 'Facebook',
-    icon: faFacebookF,
   },
   {
     link: 'https://steamcommunity.com/id/markhovs/',
