@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Raleway, Source_Sans_3 } from 'next/font/google';
 import Script from 'next/script';
 
@@ -88,6 +88,13 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+  ],
 };
 
 export default function RootLayout({
