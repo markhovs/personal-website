@@ -17,9 +17,9 @@
   /* ===================
      ACCENT COLORS
      =================== */
-  --color-accent: #6d28d9;
-  --color-accent-secondary: #a78bfa;
-  --color-accent-hover: #5b21b6;
+  --color-accent: #404fa2;
+  --color-accent-secondary: #7d88cf;
+  --color-accent-hover: #354185;
   --color-accent-light: color-mix(in srgb, var(--color-accent) 12%, transparent);
   --color-accent-subtle: color-mix(in srgb, var(--color-accent) 5%, transparent);
   --color-accent-muted: color-mix(in srgb, var(--color-accent) 3%, transparent);
